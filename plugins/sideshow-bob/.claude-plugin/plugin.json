@@ -1,7 +1,7 @@
 {
   "name": "sideshow-bob",
   "version": "1.0.0",
-  "description": "Self-improving iterative development loops - learns from each failed attempt",
+  "description": "Self-improving iterative development loops - evolves the prompt with each iteration",
   "hooks": {
     "Stop": ["${CLAUDE_PLUGIN_ROOT}/hooks/stop-hook.sh"]
   }

@@ -3,7 +3,7 @@ description: Start a self-improving Sideshow Bob loop
 allowed_tools:
   - Bash(test:*)
   - Bash(mkdir:*)
-  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/setup-sideshow-bob-loop.sh:*)
+  - Bash(${CLAUDE_PLUGIN_ROOT}/scripts/setup-bob-loop.sh:*)
 ---
 
 # Sideshow Bob Loop Command
@@ -13,7 +13,7 @@ Start a self-improving iterative development loop. Unlike ralph-wiggum which rep
 ## Usage
 
 ```
-/sideshow-bob-loop "<prompt>" [--max-iterations <n>] [--completion-promise "<text>"]
+/bob "<prompt>" [--max-iterations <n>] [--completion-promise "<text>"]
 ```
 
 ## How It Works
@@ -54,12 +54,12 @@ When the task is COMPLETELY and UNEQUIVOCALLY done, output:
 
 ```bash
 # Build a feature with iterative refinement
-/sideshow-bob-loop "Build a user authentication system with JWT tokens, refresh tokens, and comprehensive tests" \
+/bob "Build a user authentication system with JWT tokens, refresh tokens, and comprehensive tests" \
     --completion-promise "AUTH_COMPLETE" \
     --max-iterations 20
 
 # Debug a complex issue
-/sideshow-bob-loop "Fix the race condition in the payment processing pipeline. All tests must pass." \
+/bob "Fix the race condition in the payment processing pipeline. All tests must pass." \
     --completion-promise "BUG_FIXED" \
     --max-iterations 15
 ```
@@ -69,7 +69,7 @@ When the task is COMPLETELY and UNEQUIVOCALLY done, output:
 Run the setup script:
 
 ```bash
-"${CLAUDE_PLUGIN_ROOT}/scripts/setup-sideshow-bob-loop.sh" $ARGUMENTS
+"${CLAUDE_PLUGIN_ROOT}/scripts/setup-bob-loop.sh" $ARGUMENTS
 ```
 
 Then begin working on the task. The stop hook will intercept exit attempts and feed back an evolved prompt incorporating your learnings.

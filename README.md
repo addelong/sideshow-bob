@@ -35,7 +35,7 @@ The prompt itself evolves, incorporating explicit learnings from each iteration.
 cp -r plugins/sideshow-bob ~/.claude/plugins/
 
 # Start a loop
-/sideshow-bob-loop "Build a REST API with authentication and tests" \
+/bob "Build a REST API with authentication and tests" \
     --completion-promise "ALL_TESTS_PASS" \
     --max-iterations 25
 ```
@@ -45,7 +45,7 @@ cp -r plugins/sideshow-bob ~/.claude/plugins/
 ### 1. Start the Loop
 
 ```bash
-/sideshow-bob-loop "<your task>" --completion-promise "DONE"
+/bob "<your task>" --completion-promise "DONE"
 ```
 
 ### 2. Work and Learn
@@ -78,24 +78,24 @@ When truly done, output:
 
 ## Commands
 
-### `/sideshow-bob-loop`
+### `/bob`
 
 Start a self-improving loop.
 
 ```bash
-/sideshow-bob-loop "<prompt>" [OPTIONS]
+/bob "<prompt>" [OPTIONS]
 
 Options:
   --max-iterations <n>        Safety limit on iterations
   --completion-promise <text> Phrase that signals completion
 ```
 
-### `/cancel-sideshow-bob`
+### `/cancel-bob`
 
 Cancel the active loop.
 
 ```bash
-/cancel-sideshow-bob
+/cancel-bob
 ```
 
 ## Learnings Best Practices
@@ -182,7 +182,7 @@ Iteration N: *navigates perfectly* → "Die, Bart, die!"
 
 ## State File
 
-The loop state is stored in `.claude/sideshow-bob-loop.local.md`:
+The loop state is stored in `.claude/bob.local.md`:
 
 ```yaml
 ---

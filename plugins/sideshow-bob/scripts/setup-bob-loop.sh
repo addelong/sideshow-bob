@@ -13,7 +13,7 @@ Sideshow Bob Loop - Self-Improving Iterative Development
 "I'll be back. You can't keep the Democrats out of the White House forever!"
 
 USAGE:
-    /sideshow-bob-loop [PROMPT...] [OPTIONS]
+    /bob [PROMPT...] [OPTIONS]
 
 OPTIONS:
     --max-iterations <n>         Maximum iterations before auto-stop (default: unlimited)
@@ -46,11 +46,11 @@ COMPLETION:
 
 EXAMPLES:
     # Basic usage with completion promise
-    /sideshow-bob-loop "Build a REST API with CRUD operations and tests" \
+    /bob "Build a REST API with CRUD operations and tests" \
         --completion-promise "ALL_TESTS_PASS"
 
     # With iteration limit as safety net
-    /sideshow-bob-loop "Implement OAuth2 authentication flow" \
+    /bob "Implement OAuth2 authentication flow" \
         --max-iterations 30 \
         --completion-promise "AUTH_COMPLETE"
 
@@ -116,7 +116,7 @@ fi
 mkdir -p .claude
 
 # Create state file with YAML frontmatter
-STATE_FILE=".claude/sideshow-bob-loop.local.md"
+STATE_FILE=".claude/bob.local.md"
 cat > "$STATE_FILE" << EOF
 ---
 active: true

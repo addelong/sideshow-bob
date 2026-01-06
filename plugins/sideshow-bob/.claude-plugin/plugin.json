@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "Self-improving iterative development loops - evolves the prompt with each iteration",
   "hooks": {
-    "Stop": ["${CLAUDE_PLUGIN_ROOT}/hooks/stop-hook.sh"]
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/stop-hook.sh"
+          }
+        ]
+      }
+    ]
   }
 }

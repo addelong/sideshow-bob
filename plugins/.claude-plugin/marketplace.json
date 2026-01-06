@@ -1,0 +1,13 @@
+{
+  "name": "sideshow-bob-marketplace",
+  "owner": {
+    "name": "addelong"
+  },
+  "plugins": [
+    {
+      "name": "sideshow-bob",
+      "source": "./sideshow-bob",
+      "description": "Self-improving iterative development loops - learns from each failed attempt"
+    }
+  ]
+}

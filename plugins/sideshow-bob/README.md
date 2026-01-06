@@ -1,8 +1,10 @@
-# Ouroboros
+# Sideshow Bob
 
-> *The serpent that eats its own tail, forever evolving*
+> *"I'll be back. You can't keep the Democrats out of the White House forever!"*
 
-A Claude Code plugin for self-improving iterative development loops. Unlike [ralph-wiggum](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum) which feeds the same prompt repeatedly, Ouroboros **evolves the prompt** each iteration based on learnings from previous attempts.
+A Claude Code plugin for self-improving iterative development loops. Unlike [ralph-wiggum](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum) which feeds the same prompt repeatedly, Sideshow Bob **evolves the prompt** each iteration based on learnings from previous attempts.
+
+Like Bob's increasingly elaborate revenge schemes against Bart, each iteration learns from what went wrong before.
 
 ## The Core Idea
 
@@ -14,9 +16,9 @@ Iteration 2: Prompt A → Work → Files change (Claude reads changed files)
 Iteration 3: Prompt A → Work → Files change
 ```
 
-Claude improves by reading its previous file changes, but the *prompt* stays static.
+Claude improves by reading its previous file changes, but the *prompt* stays static. Like Ralph repeating the same thing over and over.
 
-**Ouroboros** works differently:
+**Sideshow Bob** works differently:
 
 ```
 Iteration 1: Prompt A → Work → Learnings extracted
@@ -24,16 +26,16 @@ Iteration 2: Prompt A + Learnings → Work → More learnings
 Iteration 3: Prompt A + All Learnings → Work → Even more learnings
 ```
 
-The prompt itself evolves, incorporating explicit learnings from each iteration. This is more like how humans iterate on problems - we don't just look at our previous work, we *remember what we learned*.
+The prompt itself evolves, incorporating explicit learnings from each iteration. Like Bob analyzing why his last scheme failed and adjusting his next one accordingly.
 
 ## Quick Start
 
 ```bash
 # Install the plugin (copy to your plugins directory)
-cp -r plugins/ouroboros ~/.claude/plugins/
+cp -r plugins/sideshow-bob ~/.claude/plugins/
 
 # Start a loop
-/ouroboros-loop "Build a REST API with authentication and tests" \
+/sideshow-bob-loop "Build a REST API with authentication and tests" \
     --completion-promise "ALL_TESTS_PASS" \
     --max-iterations 25
 ```
@@ -43,7 +45,7 @@ cp -r plugins/ouroboros ~/.claude/plugins/
 ### 1. Start the Loop
 
 ```bash
-/ouroboros-loop "<your task>" --completion-promise "DONE"
+/sideshow-bob-loop "<your task>" --completion-promise "DONE"
 ```
 
 ### 2. Work and Learn
@@ -76,24 +78,24 @@ When truly done, output:
 
 ## Commands
 
-### `/ouroboros-loop`
+### `/sideshow-bob-loop`
 
 Start a self-improving loop.
 
 ```bash
-/ouroboros-loop "<prompt>" [OPTIONS]
+/sideshow-bob-loop "<prompt>" [OPTIONS]
 
 Options:
   --max-iterations <n>        Safety limit on iterations
   --completion-promise <text> Phrase that signals completion
 ```
 
-### `/cancel-ouroboros`
+### `/cancel-sideshow-bob`
 
 Cancel the active loop.
 
 ```bash
-/cancel-ouroboros
+/cancel-sideshow-bob
 ```
 
 ## Learnings Best Practices
@@ -139,17 +141,32 @@ Cancel the active loop.
 </learnings>
 ```
 
-## Comparison: Ouroboros vs Ralph-Wiggum
+## The Rake Principle
 
-| Aspect | Ralph-Wiggum | Ouroboros |
-|--------|--------------|-----------|
-| Prompt | Static | Evolves each iteration |
+Remember the famous rake gag? Bob steps on a rake, gets hit in the face, steps on another rake, gets hit again... but eventually he learns where the rakes are.
+
+That's this plugin. Each "rake to the face" (failed attempt) teaches something. The learnings accumulate. Eventually, you navigate the yard of rakes successfully.
+
+```
+Iteration 1: *steps on rake* "Ugh!" → Learning: there's a rake at position A
+Iteration 2: *avoids A, steps on different rake* → Learning: also a rake at B
+Iteration 3: *avoids A and B, steps on another* → Learning: rake at C too
+...
+Iteration N: *navigates perfectly* → "Die, Bart, die!"
+```
+
+## Comparison: Sideshow Bob vs Ralph Wiggum
+
+| Aspect | Ralph Wiggum | Sideshow Bob |
+|--------|--------------|--------------|
+| Prompt | Static ("I'm learnding!") | Evolves each iteration |
 | Learning mechanism | Implicit (reads files) | Explicit (learnings blocks) |
 | Context growth | None (same prompt) | Accumulates learnings |
 | Best for | Simple, well-defined tasks | Complex tasks requiring discovery |
 | Memory | Files and git only | Files + explicit learnings |
+| Personality | Repeats same thing | Schemes get more elaborate |
 
-## When to Use Ouroboros
+## When to Use Sideshow Bob
 
 ✅ **Ideal for:**
 - Tasks where you'll discover requirements as you go
@@ -163,20 +180,9 @@ Cancel the active loop.
 - Tasks with no discovery component
 - Quick fixes or one-shot operations
 
-## Philosophy
-
-The ouroboros - the ancient symbol of a serpent eating its own tail - represents cyclical renewal and the eternal cycle of creation. In this plugin, it represents a development loop that feeds on its own learnings, constantly refining and improving.
-
-Key principles:
-
-1. **Explicit > Implicit**: Writing down learnings forces clarity
-2. **Accumulated wisdom**: Each iteration builds on all previous ones
-3. **Spiral, not circle**: We return to the same task but at a higher level
-4. **The prompt is alive**: It grows and adapts, not just the code
-
 ## State File
 
-The loop state is stored in `.claude/ouroboros-loop.local.md`:
+The loop state is stored in `.claude/sideshow-bob-loop.local.md`:
 
 ```yaml
 ---
@@ -188,7 +194,7 @@ created_at: 2025-01-05T10:00:00-05:00
 updated_at: 2025-01-05T11:30:00-05:00
 ---
 
-# Ouroboros Loop State
+# Sideshow Bob Loop State
 
 ## Original Prompt
 Build a REST API with authentication...
@@ -208,7 +214,7 @@ Build a REST API with authentication...
 
 ## Credits
 
-Inspired by [ralph-wiggum](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum) from the Claude Code team. Ouroboros takes the core loop concept and adds prompt evolution.
+Inspired by [ralph-wiggum](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum) from the Claude Code team. Sideshow Bob takes the core loop concept and adds prompt evolution - because while Ralph just repeats things, Bob *learns from his failures*.
 
 ## License
 

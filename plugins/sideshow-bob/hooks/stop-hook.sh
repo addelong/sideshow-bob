@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Ouroboros Stop Hook
+# Sideshow Bob Stop Hook
 # Intercepts exit attempts and evolves the prompt based on learnings from the previous iteration.
+# Like Bob's elaborate revenge schemes, each attempt learns from previous failures.
 # This is the key differentiator from ralph-wiggum: the prompt IMPROVES each iteration.
 
-STATE_FILE=".claude/ouroboros-loop.local.md"
+STATE_FILE=".claude/sideshow-bob-loop.local.md"
 
 # Allow exit if no active loop
 if [[ ! -f "$STATE_FILE" ]]; then
@@ -150,7 +151,7 @@ created_at: $(grep "^created_at:" "$STATE_FILE" | sed 's/created_at: *//' || dat
 updated_at: $(date -Iseconds)
 ---
 
-# Ouroboros Loop State
+# Sideshow Bob Loop State
 
 ## Original Prompt
 ${ORIGINAL_PROMPT}
@@ -163,7 +164,7 @@ ${EVOLVED_PROMPT}
 EOF
 
 # Build system message for context
-SYSTEM_MSG="[Ouroboros Loop - Iteration ${NEXT_ITERATION}$([ "$MAX_ITERATIONS" -gt 0 ] && echo " of ${MAX_ITERATIONS}")]"
+SYSTEM_MSG="[Sideshow Bob Loop - Iteration ${NEXT_ITERATION}$([ "$MAX_ITERATIONS" -gt 0 ] && echo " of ${MAX_ITERATIONS}")]"
 
 # Output JSON to block exit and feed evolved prompt
 # Escape the prompt for JSON

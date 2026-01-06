@@ -1,8 +1,0 @@
-{
-  "name": "ouroboros",
-  "version": "1.0.0",
-  "description": "Self-improving iterative development loops with prompt evolution",
-  "hooks": {
-    "Stop": ["${CLAUDE_PLUGIN_ROOT}/hooks/stop-hook.sh"]
-  }
-}
